@@ -19,72 +19,35 @@ affiliations:
     index: 2
 date: 09 March 2023
 bibliography: paper.bib
-
 ---
 
 # Summary
 
-System identification is a relevant research topic that aims to find mathematical models 
-using acquired data. One of the main contributions is the work of
-[@Lju1987], which was substantially developed over the years [@MA2016], [@WMNL2019]. 
-Among system identification tools, SysIdentPy [@Lacerda2020] uses Python in a very 
-straightforward way for system modeling through empirical data, while [@ayala2020r] promises to obtain models 
-using R language.
+System identification, a pivotal research topic, seeks mathematical models derived from acquired data. One key contribution is the work of [@Lju1987], which has been extensively developed over the years [@MA2016], [@WMNL2019]. Among system identification tools, SysIdentPy [@Lacerda2020] employs Python for system modeling through empirical data, while [@ayala2020r] proposes model acquisition using the R language.
 
-As pointed out by [@Lju1987], experimental data are necessary for obtaining 
-black-box models, and this is exactly where PYDAQ find its place. PYDAQ is a Python tool 
-which was primarily developed for experiments with empirical data, either sending and/or 
-acquiring data using simple Graphical User Interfaces or command line, with 
-few (or no) lines of code required, using different solutions provided by the 
-market (NIDAQ and Arduino). Even a reseacher with no programming skills 
-is able to use PYDAQ easily and quickly for data acquisition.
+As highlighted by [@Lju1987], experimental data is essential for black-box models, making PYDAQ particularly valuable. PYDAQ, a Python tool, was primarily designed for experiments with empirical data, enabling data sending and acquisition via simple graphical user interfaces or the command line. With minimal code, and compatibility with market solutions like NIDAQ and Arduino, even researchers without programming experience can utilize PYDAQ for efficient data collection.
 
-In what follows it will be shown how PYDAQ can be use by any scientist, its advantages and features for 
-quickly and effective data acquisition experiments, even if the scientist has no programming skills. 
+Subsequent sections will discuss PYDAQ's usability, its benefits, and its features that facilitate rapid and effective data acquisition, irrespective of a user's programming proficiency.
 
-# Statement of need
+# Statement of Need
 
-Any scientist or student which needs to acquire data in an ease and quick way, 
-in three Line of Codes (LOC) are the target audience of this manuscript/package. PYDAQ 
-is a solution that aims to allow the user to perform experiments from data acquisition to 
-signals generation using a Graphical User Interface. 
+PYDAQ targets scientists or students aiming for simple and swift data acquisition with as few as three lines of code. It provides a solution for experimental data acquisition to signal generation, facilitated by a graphical user interface.
 
-Despite this, for advanced users, it is also possible to use PYDAQ through command line, as 
-showed up in documentation (https://samirmartins.github.io/pydaq/), allowing 
-PYDAQ to be integrated in real time with well known modeling tools.
+Moreover, advanced users can access PYDAQ through the command line, as detailed in the [documentation](https://samirmartins.github.io/pydaq/), integrating it seamlessly with renowned modeling tools.
 
-To contextualize the importance of PYDAQ, there are full papers [@Yang2019], [@Koerner2020]
-dealing only with data acquisition. It should be clear at this point 
-that data acquisition is commonly only the first step 
-in an empirical scientific procedure, such as in the work of [@Ostrovskii2020]. 
-Therefore, this step should not take too much energy of a researcher, since he/she 
-needs to be full of energy to continue the research project.
+The significance of PYDAQ is underscored by numerous papers, such as [@Yang2019] and [@Koerner2020], dedicated solely to data acquisition. This initial step in empirical scientific processes, as illustrated in [@Ostrovskii2020], shouldn't consume excessive researcher effort.
 
-Further, PYDAQ deals from different type of data acquisition cards, since 
-simple and cheaper Arduino boards up to NIDAQ devices, allowing the execution from simple to complex 
-experiments. Also, since PYDAQ can be also used as a command line tool, it can 
-be easily incorporated to be used in production along with any available mathematical tool, such 
-as SysIdentPy [@Lacerda2020] or SciKitLearn [@scikit-learn].
+Furthermore, PYDAQ supports a variety of data acquisition cards, ranging from affordable Arduino boards to advanced NIDAQ devices. This compatibility ensures the feasibility of diverse experiments. With its command line accessibility, PYDAQ can also integrate with prominent mathematical tools like SysIdentPy [@Lacerda2020] or SciKitLearn [@scikit-learn].
 
-In literature there are packages that deals with NIDAQ devices, 
-such as [@Koerner2020]. However, they need several 
-lines of codes in order to make a single data acquisition, and works only with expensive and 
-proprietary boards. Besides, as far as I know, there is no Graphical User Interface 
-open software that allows instantly and easily data acquisition with Python, being this another 
-feature of PYDAQ.
+While some packages, like [@Koerner2020], interact with NIDAQ devices, they often require extensive coding for basic data collection and are limited to pricier, proprietary boards. To the best of my knowledge, no open-source software offers a user-friendly graphical interface for immediate data collection with Python, a unique feature of PYDAQ.
 
-Because of the above-mentioned facts, PYDAQ can be used also to introduce new 
-scientist in the System Identification research area. Also, PYDAQ can be used in 
-teaching, during engineering courses and in low-cost laboratories' implementation, once 
-Arduino boards are quite cheap and easy to find. Graphical User Interfaces also allows 
-the user to be directly connected with the subject, as explicitly said by [@Silva_2018].
+Considering these attributes, PYDAQ serves as an ideal introduction to the System Identification research domain. It can also be employed in educational settings, including engineering courses and cost-effective laboratory setups, given the affordability and availability of Arduino boards. Graphical interfaces foster direct user engagement with the subject, a sentiment echoed by [@Silva_2018].
 
-In what follows examples of how to use PYDAQ will be presented, as well as future 
-research topics. Further details can also be found in [documentation](https://samirmartins.github.io/pydaq/). 
+The upcoming sections will provide examples of using PYDAQ and outline potential areas for future research. Comprehensive details are available in the [documentation](https://samirmartins.github.io/pydaq/).
 
 # Examples
 
-The fastest way to install PYDAQ is using pip:
+To quickly install PYDAQ, use pip:
 
 ```console
 pip install pydaq
@@ -97,7 +60,7 @@ the Graphical User Interface developed for Data Acquisition using Arduino or any
 
 ![Data Acquisition through Arduino.\label{fig:arduino_get_gui}](../docs/img/get_data_arduino.png){ width=20%, height=20%}
 
-To start them, only three line of codes (LOC) are necessary, including one for importing PYDAQ: 
+To start them, only three lines of codes (LOC) are necessary, including one for importing PYDAQ: 
 
 ```python
 from pydaq.get_data import Get_data
@@ -109,7 +72,7 @@ g.get_data_nidaq_gui() # For NIDAQ devices
 g.get_data_arduino_gui() # For arduino boards
 ```
 
-Similarly, to send data, only three LOC are required, as showed up in what follow:
+Similarly, to send data, only three LOCs are required, as shown below:
 
 ```python
 from pydaq.send_data import Send_data
@@ -122,7 +85,7 @@ s.send_data_nidaq_gui()
 s.send_data_arduino_gui()
 ```
 
-If the user decides to save data, it will be saved in .dat format, located at the 
+If the user decides to save data, it will be stored in `.dat` format, using the 
 path defined in the GUI (Desktop is the default path). \autoref{fig:data} shows an example of how data will be saved: i) one file (time.dat) 
 with the timestamp, in seconds, when each sample was acquired; ii) file data.dat containing acquired values.
 
@@ -132,24 +95,13 @@ with the timestamp, in seconds, when each sample was acquired; ii) file data.dat
 
 ![GUI for sending data - NIDAQ.\label{fig:nidaq_send_gui}](../docs/img/send_data_arduino_gui.png){ width=15%, height=15%}
 
-It should be emphasized that once this code is executed, a Graphical User Interface will 
-manifest on the screen, according to the board selected by the user, as 
-shown in \autoref{fig:arduino_send_gui} and \autoref{fig:nidaq_send_gui}.
+Once this code is executed, a Graphical User Interface (GUI) will appear on the screen, corresponding to the board chosen by the user, as illustrated in \autoref{fig:arduino_send_gui} and \autoref{fig:nidaq_send_gui}.
 
-Options are straight-forward and ease to understand. For further details and to check 
-how to use the same functionality using a command line the reader are invited to 
-check the documentation (https://samirmartins.github.io/pydaq/). 
+The options are intuitive and easy to navigate. For a more detailed explanation and for instructions on using these functionalities via the command line, readers are directed to the [documentation](https://samirmartins.github.io/pydaq/).
 
-It is noteworthy that any signal can be generated and applied to a physical 
-system using the presented GUI, being the used board the main constraint. Data 
-can be either generated manually or using a library (e.g, numpy) to create 
-signals as sine waves, PRBS (Pseudo-Random Binary Signal) or other signal 
-required to be a persistently exciting input, as necessary for system identification [@Lju1987], [@Bil2013].  
+It's important to note that any signal can be generated and applied to a physical system using the provided GUI, with the chosen board being the primary limitation. Data can be generated manually or with a library (e.g., numpy) to produce signals such as sine waves, PRBS (Pseudo-Random Binary Signal), or any other signal that serves as a persistently exciting input, which is essential for system identification [@Lju1987], [@Bil2013].
 
-Step-response is a common way to test a system and acquire data, in order to find a model, as well 
-as system time constant and gain. To facilitate this procedure, a step-response GUI 
-was also created and can be seen in \autoref{fig:step_nidaq} and  \autoref{fig:step_arduino}. 
-To use them, user should type the command: 
+A step-response is a standard method for testing a system and collecting data to derive a model, as well as to determine the system's time constant and gain. To streamline this process, a step-response GUI has been developed, visible in \autoref{fig:step_nidaq} and \autoref{fig:step_arduino}. To access it, users should enter the following command:
 
 ```python
 from pydaq.step_response import Step_response
@@ -178,15 +130,13 @@ device/channel (for NIDAQ boards) or COM port used (for Arduino devices).
 ![Data generated by a step-response experiment.\label{fig:step_data}](../docs/img/step_response_arduino.png){ width=40%, height=40%}
 
 
-Examples showed above shed light in some functionalities of PYDAQ. For further 
-details and for command line use, the reader is welcome to consult full 
-documentation (https://samirmartins.github.io/pydaq/).
-
+The examples provided above highlight some of PYDAQ's features. For a deeper understanding and guidance on using the command line, please refer to the [complete documentation](https://samirmartins.github.io/pydaq/).
 
 # Future Work
+Upcoming versions of PYDAQ will incorporate:
+- Real-time and data-driven system identification using both linear and nonlinear methodologies.
+- Implementation of real-time model-based controllers.
+- The capability to save data on an SQL server.
 
-Future releases will include real-time and data-driven system identification using linear and nonlinear approaches. 
-Also, real-time model based controllers will be implemented through PYDAQ. Saving data 
-in an SQL server is a future feature, as well.
 
 # References
